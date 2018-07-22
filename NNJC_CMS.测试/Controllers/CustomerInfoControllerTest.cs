@@ -21,7 +21,7 @@ namespace NNJC_CMS.测试.Controllers
         }
 
         [TestMethod]
-        public void Index_EmptyRequestParams_ReturnViewResultWithPagedCustomerListObject()
+        public void Index_EmptyRequestParams_ReturnViewResultWithPagedCustomerList()
         {
             const string expectedCustomerFullName = "南宁财嘉";
             _mockICustomerInfoService.Setup(c => c.GetPagedCustomers()).Returns(new List<Customer> { new Customer { CustomerFullName = expectedCustomerFullName } });
@@ -32,7 +32,7 @@ namespace NNJC_CMS.测试.Controllers
         }
 
         [TestMethod]
-        public void Index_EmptyRequestParams_ReturnViewDataWithMessage()
+        public void Index_EmptyRequestParams_ReturnViewDataWithMessageData()
         {
             const string key = "Message",value="MyHome";
             CustomerInfoController controller = new CustomerInfoController(_mockICustomerInfoService.Object);
