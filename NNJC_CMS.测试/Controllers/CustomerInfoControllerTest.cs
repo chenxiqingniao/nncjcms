@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web;
 using System.Collections.Specialized;
+using NNJC_CMS.Services.Customers;
 
 namespace NNJC_CMS.测试.Controllers
 {

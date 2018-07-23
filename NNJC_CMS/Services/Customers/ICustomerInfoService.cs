@@ -1,10 +1,7 @@
-﻿using System;
+﻿using NNJC_CMS.Models.Customers;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NNJC_CMS.Models.Customers
+namespace NNJC_CMS.Services.Customers
 {
     public interface ICustomerInfoService
     {

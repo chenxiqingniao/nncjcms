@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using NNJC_CMS.Services.Customers;
 using System.Web.Mvc;
-using NNJC_CMS.Models.Customers;
 
 namespace NNJC_CMS.Controllers
 {

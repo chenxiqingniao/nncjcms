@@ -1,9 +1,7 @@
 ﻿using Ninject;
-using NNJC_CMS.Models.Customers;
+using NNJC_CMS.Repositories;
+using NNJC_CMS.Services.Customers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -20,8 +18,11 @@ namespace NNJC_CMS.Infrastructure
 
         void AddBindings()
         {
+            _ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+            _ninjectKernel.Bind<ICustomerRepository>().To<CustomerRepository>();
             _ninjectKernel.Bind<ICustomerInfoService>().To<CustomerInfoService>();
         }
+
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
             return controllerType == null ? null : (IController)_ninjectKernel.Get(controllerType);
