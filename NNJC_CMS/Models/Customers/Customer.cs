@@ -2,9 +2,10 @@
 
 namespace NNJC_CMS.Models.Customers
 {
-    public class Customer: IAggregateRoot
+    public class Customer: EntityBase<int>, IAggregateRoot
     {
-        public int Id { get; set; }
         public string CustomerFullName { get; set; }
+        public string Address { get; set; }
+        public string Contact { get; set; }
     }
 }

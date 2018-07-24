@@ -181,6 +181,8 @@
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Models\Customers\Customer.cs" />
+    <Compile Include="Models\EntityBase.cs" />
+    <Compile Include="Repositories\SysDataInitializer.cs" />
     <Compile Include="Services\Customers\CustomerInfoService.cs" />
     <Compile Include="Services\Customers\ICustomerInfoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -27,5 +27,10 @@ namespace NNJC_CMS.Services.Customers
                 new Customer { CustomerFullName="南宁财嘉紧固件"}
             };
         }
+
+        public IEnumerable<Customer> GetCustomerBy(string customerFullName)
+        {
+           return _customerRepository.FindBy(customerFullName);
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using NNJC_CMS.Models.Customers;
 using NNJC_CMS.Infrastructure;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NNJC_CMS.Repositories
 {
@@ -15,6 +17,14 @@ namespace NNJC_CMS.Repositories
         public void Add(Customer customer)
         {
             _unitOfWork.RegisterNew(customer, this);
+        }
+
+        public IEnumerable<Customer> FindBy(string customerFullName)
+        {
+            using (var ctx = new NNJCDBContext())
+            {
+                return ctx.Customers.Where(m => m.CustomerFullName.Contains(customerFullName)).ToList();
+            }
         }
 
         public void PersistCreationOf(IAggregateRoot entity)

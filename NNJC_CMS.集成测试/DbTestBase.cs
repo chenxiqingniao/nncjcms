@@ -7,16 +7,12 @@ namespace NNJC_CMS.集成测试
     [TestClass]
     public class DbTestBase
     {
-        private TransactionScope _scope;
-        [TestInitialize]
-        public void SetUp()
+        protected void RollBack(Action action)
         {
-            _scope = new TransactionScope();
-        }
-        [TestCleanup]
-        public void TearDown()
-        {
-            _scope.Dispose();
+            using (var tran = new TransactionScope())
+            {
+                action();               
+            }
         }
     }
 }
