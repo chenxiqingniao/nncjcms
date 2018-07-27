@@ -2,6 +2,8 @@
 using NNJC_CMS.Models.Customers;
 using NNJC_CMS.Repositories;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 namespace NNJC_CMS.Services.Customers
 {
@@ -23,9 +25,8 @@ namespace NNJC_CMS.Services.Customers
 
         public IList<Customer> GetPagedCustomers()
         {
-            return new List<Customer> {
-                new Customer { CustomerFullName="南宁财嘉紧固件"}
-            };
+            return _customerRepository.FindAll().ToList()
+                ;
         }
 
         public IEnumerable<Customer> GetCustomerBy(string customerFullName)

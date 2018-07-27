@@ -38,7 +38,7 @@ namespace NNJC_CMS.集成测试
             return entity;
         }
 
-        [TestMethod][Ignore]
+        [TestMethod]
         public void GetCustomerBy_ProvideCustomerFullNameAndNoPaged_ReturnCustomerList()
         {
             RollBack(() =>
@@ -53,6 +53,20 @@ namespace NNJC_CMS.集成测试
         private Customer GetNewCustomerEntity()
         {
             return new Customer { CustomerFullName = "富阳" };
+        }
+
+        [TestMethod]
+        [Ignore]
+        public void GetPagedCustomers_NoConditions_ReturnCustomers() {
+            RollBack(() => {
+                GetAddedCustomer();
+                GetAddedCustomer();
+                GetAddedCustomer();
+                var customers = _customerInfoService.GetPagedCustomers();
+                Assert.IsNotNull(customers);
+                Assert.AreEqual(3, customers.Count());
+            });
+           
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Data.Entity;
 
 namespace NNJC_CMS.Repositories
 {
-    public class SysDataInitializer : DropCreateDatabaseIfModelChanges<NNJCDBContext>
+    public class SysDataInitializer : DropCreateDatabaseIfModelChanges<NNCJDBContext>
     {
-        protected override void Seed(NNJCDBContext context)
+        protected override void Seed(NNCJDBContext context)
         {
             context.Customers.AddRange(new List<Customer> { new Customer { CustomerFullName = "云南富阳", Address = "云南省富阳县" }, new Customer { CustomerFullName = "南糖", Address = "广西南宁市" } });
             context.SaveChanges();

@@ -19,9 +19,17 @@ namespace NNJC_CMS.Repositories
             _unitOfWork.RegisterNew(customer, this);
         }
 
+        public IEnumerable<Customer> FindAll()
+        {
+            using (var ctx = new NNCJDBContext())
+            {
+                return ctx.Customers.Take(100).ToList();
+            }
+        }
+
         public IEnumerable<Customer> FindBy(string customerFullName)
         {
-            using (var ctx = new NNJCDBContext())
+            using (var ctx = new NNCJDBContext())
             {
                 return ctx.Customers.Where(m => m.CustomerFullName.Contains(customerFullName)).ToList();
             }
@@ -29,7 +37,7 @@ namespace NNJC_CMS.Repositories
 
         public void PersistCreationOf(IAggregateRoot entity)
         {
-            using (var context = new NNJCDBContext())
+            using (var context = new NNCJDBContext())
             {
                 context.Customers.Add((Customer)entity);
                 context.SaveChanges();
@@ -38,7 +46,7 @@ namespace NNJC_CMS.Repositories
 
         public void PersistDeletionOf(IAggregateRoot entity)
         {
-            using (var context = new NNJCDBContext())
+            using (var context = new NNCJDBContext())
             {
                 context.Customers.Remove((Customer)entity);
                 context.SaveChanges();
@@ -47,7 +55,7 @@ namespace NNJC_CMS.Repositories
 
         public void PersistUpdatOf(IAggregateRoot entity)
         {
-            using (var context = new NNJCDBContext())
+            using (var context = new NNCJDBContext())
             {
                 context.Entry<Customer>((Customer)entity).State= System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();

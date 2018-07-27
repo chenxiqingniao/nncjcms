@@ -9,5 +9,6 @@ namespace NNJC_CMS.Repositories
         void Add(Customer customer);
         void Remove(Customer customer);
         IEnumerable<Customer> FindBy(string customerFullName);
+        IEnumerable<Customer> FindAll();
     }
 }

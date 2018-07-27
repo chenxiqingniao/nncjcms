@@ -3,9 +3,9 @@ using System.Data.Entity;
 
 namespace NNJC_CMS.Repositories
 {
-    public class NNJCDBContext:DbContext
+    public class NNCJDBContext:DbContext
     {
-        public NNJCDBContext():base("nncjdb") { }
+        public NNCJDBContext():base("name=nncjdb") { }
         public DbSet<Customer> Customers { get; set; }
     }
 }
